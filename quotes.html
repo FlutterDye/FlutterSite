@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FlutterSite - Quotes!</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="quotes.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      //alert("Hello");
+      const quotesDiv = document.getElementById("quotes");
+      // const div= document.createElement("div");
+      // div.textContent= "hello world";
+      // main.appendChild(div)
+      const addQuote = function (quote) {
+        const div = document.createElement("div");
+        const text = document.createElement("p");
+        let fullQuote = `#${quote.quoteId}: ${quote.text}`;
+        if (quote.author != null) {
+          fullQuote += ` - ${quote.author}`
+        }
+        text.textContent = fullQuote;
+        div.appendChild(text)
+        quotesDiv.appendChild(div)
+      }
+      quotes.forEach(addQuote)
+      const Waldo = document.querySelector(`input[name="search"]`)
+      Waldo.addEventListener("input", function (event) {
+        console.log(event.target.value)
+        quotesDiv.textContent = ""
+        if (event.target.value) {
+          const Value = event.target.value.toLowerCase();
+          const FilteredQuotes = quotes.filter((quote) => {
+            if (quote.text.toLowerCase().includes(Value) || quote.author?.toLowerCase()?.includes(Value) || quote.quoteId.toString().includes(Value)) {
+              return true
+            }
+          })
+          console.log(FilteredQuotes)
+          FilteredQuotes.forEach(addQuote)
+        }
+        else {
+          quotes.forEach(addQuote)
+        }
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to the Quotes!</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="photos.html">Photos</a>
+        </li>
+        <li>
+          <a href="quotes.html">Quotes</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <input type="text" name="search" placeholder="Search Quotes...">
+    <div id="quotes"></div>
+  </main>
+  <footer>
+    copyright &copy; 2026 FlutterDye
+  </footer>
+</body>
+
+</html>
