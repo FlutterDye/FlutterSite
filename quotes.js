@@ -77,7 +77,7 @@ const quotes = [
 	{
 		"quoteId" : 16,
 		"text" : "\"We're gonna do a slidey thing. It was a short slidey thing.\"",
-		"author" : "Flutter (Star Wars, 2l22)"
+		"author" : "Flutter (Star Wars, 2022)"
 	},
 	{
 		"quoteId" : 17,
