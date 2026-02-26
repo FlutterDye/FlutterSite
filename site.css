@@ -4,7 +4,7 @@ img {
     width: 600px;
 }
 header, main, footer {
-    width: 800px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -26,4 +26,15 @@ input {
     margin-left: auto;
     margin-right: auto;
     display: block
+}
+.quote-id {
+    margin-right: 15px;
+    display: inline-block;
+}
+.quote-author {
+    margin-left: 5px;
+    display: inline-block;
+}
+.quote-author::before {
+    content: " - ";
 }
